@@ -1,7 +1,7 @@
 const input = require('readline-sync');
 
 // TODO 2: modify your quiz app to ask 5 questions //
-
+let grade = 0;
 // TODO 1.1a: Define candidateName // 
 let candidateName = '';
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
@@ -29,7 +29,7 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
- let grade = 0;
+ 
  let innerGrade = 0;
  for (let i = 0; i < correctAnswers.length; i++){
   if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
@@ -39,7 +39,6 @@ function gradeQuiz(candidateAnswers) {
     console.log(`Sorry, you got it wrong. ${innerGrade} out of 5.`);
   }
  }
-
   //TODO 3.2 use this variable to calculate the candidates score.
 grade = (innerGrade / questions.length) * 100;
 if (grade >= 80) {
@@ -47,6 +46,7 @@ if (grade >= 80) {
 } else {
   console.log("I'm sorry. You failed. Please try again.");
 }
+  
   return grade;
 }
 
@@ -56,10 +56,6 @@ function runProgram() {
    console.log(`Hello ${candidateName}!`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
-  console.log(candidateAnswers);
-  console.log(correctAnswers);
-  console.log(candidateAnswers[0].toLowerCase() === correctAnswers[0].toLowerCase());
-  //if (candidateAnswers[0].to)
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
